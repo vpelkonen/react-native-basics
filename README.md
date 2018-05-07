@@ -1,11 +1,10 @@
-# React Native 101
+# React Native Basics
 
-This is course material for learning how to make a mobile app for Android and iOS using only JavaScript.
+This is a course material for learning how to make a mobile app for Android and iOS with React Native, writing only JavaScript.
 
+The sample app in the `/app` directory is based on Facebook's [`create-react-native-app`](https://github.com/react-community/create-react-native-app). It's meant to work as a boilerplate for developing your own app. It has ready examples of all the sections featured in the course.
 
-The sample app in the `/example` directory is based on Facebook's [`create-react-native-app`](https://github.com/react-community/create-react-native-app). It's meant to work as a boilerplate for developing your own app. It has ready examples of all the sections featured in the course.
-
-### Goals
+## Goals
 During the course you will learn how to:
 
 * Develop a mobile app for both Andorid and iOS in [React Native](https://facebook.github.io/react-native/)
@@ -17,8 +16,8 @@ During the course you will learn how to:
 
 Learning how to write tests and release apps to AppStore and Play Store are out of the scope of this course.
 
-### Structure
-The course is divided into sections We'll go through each section of the course together in class, including plenty of time to write your own code.
+## Structure
+The course is divided into five sections. We'll go through each section of the course together in class. There will be plenty of time to write your own code.
 
 1. Setting up
 2. [React Native Components](https://facebook.github.io/react-native/docs/components-and-apis.html)
@@ -27,9 +26,12 @@ The course is divided into sections We'll go through each section of the course 
 4. [Fetch](https://facebook.github.io/react-native/docs/network.html) & [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 5. [Redux](https://redux.js.org/)
 
-### Prerequisites
+## Prerequisites
 You will need to install [node](https://nodejs.org/en/download/) and [yarn](https://yarnpkg.com/en/docs/install). See their respective links for installation instructions.
 
 If using a physical iOS or Android device to test, also install [Expo](https://expo.io/) from AppStore or Play Store on that device.
 
 Downloading tools like Android Studio or Xcode isn't necessary. However, if you have them installed, you can use the typically included Android emulator and iOS Simulator to run your app.
+
+## Assignment
+(Info about Your App and what the student is expected of in this course.)
