@@ -20,8 +20,7 @@ Learning how to write tests and release apps to AppStore and Play Store are out 
 The course is divided into five sections. We'll go through each section of the course together in class. There will be plenty of time to write your own code.
 
 1. Setting up
-2. [React Native Components](https://facebook.github.io/react-native/docs/components-and-apis.html)
-  * Including [props](https://facebook.github.io/react-native/docs/props.html), [state](https://facebook.github.io/react-native/docs/state.html), [style](https://facebook.github.io/react-native/docs/style.html) and [lifecycle](https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class).
+2. [React Native Components](https://facebook.github.io/react-native/docs/components-and-apis.html) (Including [props](https://facebook.github.io/react-native/docs/props.html), [state](https://facebook.github.io/react-native/docs/state.html), [style](https://facebook.github.io/react-native/docs/style.html) and [lifecycle](https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class).)
 3. [Navigation](https://reactnavigation.org/docs/hello-react-navigation.html)
 4. [Fetch](https://facebook.github.io/react-native/docs/network.html) & [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 5. [Redux](https://redux.js.org/)
