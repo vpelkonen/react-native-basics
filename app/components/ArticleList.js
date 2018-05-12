@@ -7,12 +7,18 @@ import colors from '../constants/colors'
 import * as shapes from '../constants/prop-types'
 
 const ArticleList = (props) => {
-  const { articles, navigation: { dispatch } } = props
+  const { articles, isLoading, navigation: { dispatch }, onRefresh } = props
   return (
     <FlatList
       style={styles.container}
       data={articles}
       keyExtractor={article => `${article.id}`}
+      refreshControl={
+        <RefreshControl
+          refreshing={isLoading}
+          onRefresh={onRefresh}
+        />
+      }
       renderItem={({ item }) => (
         <ArticleListItem
           article={item}
@@ -24,11 +30,13 @@ const ArticleList = (props) => {
 }
 
 ArticleList.defaultProps = {
-  articles: []
+  articles: null
 }
 
 ArticleList.propTypes = {
-  articles: PropTypes.arrayOf(shapes.article)
+  articles: PropTypes.arrayOf(shapes.article),
+  isLoading: PropTypes.bool.isRequired,
+  onRefresh: PropTypes.func.isRequired
 }
 
 const styles = StyleSheet.create({
