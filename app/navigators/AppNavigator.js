@@ -1,9 +1,7 @@
-import React from 'react'
 import { createStackNavigator } from 'react-navigation'
 
 import ArticleScreen from '../containers/ArticleScreen'
 import ArticlesScreen from '../containers/ArticlesScreen'
-import colors from '../constants/colors'
 
 export default createStackNavigator(
   // RouteConfigs
