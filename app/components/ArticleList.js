@@ -4,6 +4,7 @@ import { Button, FlatList, StyleSheet } from 'react-native'
 
 import ArticleListItem from './ArticleListItem'
 import colors from '../constants/colors'
+import * as shapes from '../constants/prop-types'
 
 class ArticleList extends React.Component {
   constructor(props) {
@@ -51,7 +52,7 @@ ArticleList.defaultProps = {
 }
 
 ArticleList.propTypes = {
-  articles: PropTypes.arrayOf(PropTypes.shape({}))
+  articles: PropTypes.arrayOf(PropTypes.shape(shapes.article))
 }
 
 const styles = StyleSheet.create({
