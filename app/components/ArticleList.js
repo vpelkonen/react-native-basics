@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, FlatList, StyleSheet } from 'react-native'
+import { FlatList, StyleSheet } from 'react-native'
 
 import ArticleListItem from './ArticleListItem'
 import colors from '../constants/colors'

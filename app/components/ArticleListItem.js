@@ -1,6 +1,5 @@
 import React from 'react'
 import moment from 'moment-timezone'
-import PropTypes from 'prop-types'
 import { Linking, StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 import colors from '../constants/colors'
