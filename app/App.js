@@ -3,10 +3,11 @@ import { SafeAreaView, StyleSheet } from 'react-native'
 
 import ArticleList from './components/ArticleList'
 import articlesData from './fixtures/articlesData.json'
+import AppNavigator from './navigators/AppNavigator'
 
 const App = () => (
   <SafeAreaView style={styles.appContainer}>
-    <ArticleList articles={articlesData} />
+    <AppNavigator />
   </SafeAreaView>
 )
 

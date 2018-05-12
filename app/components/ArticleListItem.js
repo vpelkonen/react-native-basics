@@ -1,5 +1,7 @@
 import React from 'react'
 import moment from 'moment-timezone'
+import PropTypes from 'prop-types'
+import { NavigationActions } from 'react-navigation'
 import { Linking, StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 import colors from '../constants/colors'
@@ -12,8 +14,8 @@ class ArticleListItem extends React.Component {
   }
 
   onArticlePress() {
-    const { article: { url } } = this.props
-    Linking.openURL(url)
+    const { article: { id }, dispatch } = this.props
+    dispatch(NavigationActions.navigate({ routeName: 'Article', params: { id } }))
   }
 
   render() {
@@ -36,7 +38,8 @@ class ArticleListItem extends React.Component {
 }
 
 ArticleListItem.propTypes = {
-  article: shapes.article.isRequired
+  article: shapes.article.isRequired,
+  dispatch: PropTypes.func.isRequired
 }
 
 const styles = StyleSheet.create({
