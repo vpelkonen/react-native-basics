@@ -43,4 +43,4 @@ Here's a long list of publicly available APIs for the brave and inspired: https:
 
 ---
 
-With ♥️ [Ville Pelkonen](https://www.linkedin.com/in/vpelkonen/) & [Samuli Laine](https://www.linkedin.com/in/samuli-laine-2a5bb880/)
+With ♥️ by [Ville Pelkonen](https://www.linkedin.com/in/vpelkonen/) & [Samuli Laine](https://www.linkedin.com/in/samuli-laine-2a5bb880/)
