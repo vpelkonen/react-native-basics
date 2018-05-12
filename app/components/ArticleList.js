@@ -6,45 +6,16 @@ import ArticleListItem from './ArticleListItem'
 import colors from '../constants/colors'
 import * as shapes from '../constants/prop-types'
 
-class ArticleList extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isNightModeOn: false
-    }
-    this.onThemeButtonPressed = this.onThemeButtonPressed.bind(this)
-  }
-
-  onThemeButtonPressed() {
-    const { isNightModeOn } = this.state
-    this.setState({
-      isNightModeOn: !isNightModeOn
-    })
-  }
-
-  render() {
-    const { articles } = this.props
-    const { isNightModeOn } = this.state
-    return (
-      <FlatList
-        contentContainerStyle={[styles.container, isNightModeOn && styles.containerNightMode]}
-        data={articles}
-        keyExtractor={article => `${article.id}`}
-        renderItem={({ item }) => (
-          <ArticleListItem
-            article={item}
-            isNightModeOn={isNightModeOn}
-          />
-        )}
-        ListHeaderComponent={
-          <Button
-            title="Change theme"
-            onPress={this.onThemeButtonPressed}
-          />
-        }
-      />
-    )
-  }
+const ArticleList = (props) => {
+  const { articles } = props
+  return (
+    <FlatList
+      style={styles.container}
+      data={articles}
+      keyExtractor={article => `${article.id}`}
+      renderItem={({ item }) => <ArticleListItem article={item} />}
+    />
+  )
 }
 
 ArticleList.defaultProps = {
@@ -60,9 +31,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: colors.white
-  },
-  containerNightMode: {
-    backgroundColor: colors.black
   }
 })
 

@@ -18,17 +18,17 @@ class ArticleListItem extends React.Component {
   }
 
   render() {
-    const { article: { title, time }, isNightModeOn } = this.props
+    const { article: { title, time } } = this.props
     const formattedTime = moment.unix(time).tz('Europe/Helsinki').calendar()
     return (
       <TouchableOpacity
         onPress={this.onArticlePress}
         style={styles.container}
       >
-        <Text style={[styles.time, isNightModeOn && styles.nightModeText]}>
+        <Text style={styles.time}>
           {formattedTime}
         </Text>
-        <Text style={[styles.title, isNightModeOn && styles.nightModeText]}>
+        <Text style={styles.title}>
           {title}
         </Text>
       </TouchableOpacity>
@@ -37,8 +37,7 @@ class ArticleListItem extends React.Component {
 }
 
 ArticleListItem.propTypes = {
-  article: shapes.article.isRequired,
-  isNightModeOn: PropTypes.bool.isRequired
+  article: shapes.article.isRequired
 }
 
 const styles = StyleSheet.create({
@@ -47,15 +46,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
     borderColor: colors.gray,
     borderWidth: StyleSheet.hairlineWidth,
+    borderRadius: 3
   },
   time: {
     fontSize: 12
   },
   title: {
     marginTop: 10
-  },
-  nightModeText: {
-    color: colors.white
   }
 })
 

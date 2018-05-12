@@ -2,7 +2,7 @@ import React from 'react'
 import { SafeAreaView, StyleSheet } from 'react-native'
 
 import ArticleList from './components/ArticleList'
-import articlesData from './api/articlesData.json'
+import articlesData from './fixtures/articlesData.json'
 
 const App = () => (
   <SafeAreaView style={styles.appContainer}>
