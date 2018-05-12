@@ -1,7 +1,7 @@
 import React from 'react'
 
 import ArticleList from '../components/ArticleList'
-import articlesData from '../api/articlesData.json'
+import articlesData from '../fixtures/articlesData.json'
 
 const ArticlesScreen = (props) => {
   const { navigation } = props
