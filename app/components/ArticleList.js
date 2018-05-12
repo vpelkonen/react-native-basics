@@ -28,8 +28,7 @@ ArticleList.defaultProps = {
 }
 
 ArticleList.propTypes = {
-  articles: PropTypes.arrayOf(shapes.article),
-  navigation: PropTypes.shape({})
+  articles: PropTypes.arrayOf(shapes.article)
 }
 
 const styles = StyleSheet.create({
