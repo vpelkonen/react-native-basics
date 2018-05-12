@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Linking, StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 import colors from '../constants/colors'
-import * as shapes = '../constants/prop-types'
+import * as shapes from '../constants/prop-types'
 
 class ArticleListItem extends React.Component {
   constructor(props) {
@@ -37,7 +37,7 @@ class ArticleListItem extends React.Component {
 }
 
 ArticleListItem.propTypes = {
-  article: PropTypes.shape(shapes.article).isRequired,
+  article: shapes.article.isRequired,
   isNightModeOn: PropTypes.bool.isRequired
 }
 

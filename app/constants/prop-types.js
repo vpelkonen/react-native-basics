@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
-export article = PropTypes.shape({
-  id: PropTypes.number,
-  title: PropTypes.string,
-  url: PropTypes.string
+export const article = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired
 })

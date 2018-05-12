@@ -52,7 +52,7 @@ ArticleList.defaultProps = {
 }
 
 ArticleList.propTypes = {
-  articles: PropTypes.arrayOf(PropTypes.shape(shapes.article))
+  articles: PropTypes.arrayOf(shapes.article)
 }
 
 const styles = StyleSheet.create({
