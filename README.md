@@ -1,5 +1,4 @@
 # React Native Basics
-Hi, friend!
 
 This is a course material for learning how to make a mobile app for Android and iOS with React Native, writing only JavaScript.
 
@@ -41,5 +40,7 @@ We'll develop an example app together in class using the [Hacker News API](https
 If you're confident, you can build the app around any API. You could use, for example, the [Foreign exchange rates API](https://exchangeratesapi.io/), the [Magic: the Gathering API](https://docs.magicthegathering.io/) or the [PokéAPI](https://pokeapi.co/). None of these require authentication via OAuth or API keys.
 
 Here's a long list of publicly available APIs for the brave and inspired: https://github.com/toddmotto/public-apis.
+
+---
 
 With ♥️ [Ville Pelkonen](https://www.linkedin.com/in/vpelkonen/) & [Samuli Laine](https://www.linkedin.com/in/samuli-laine-2a5bb880/)
