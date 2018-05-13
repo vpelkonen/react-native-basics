@@ -1,13 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FlatList, StyleSheet } from 'react-native'
+import { FlatList, RefreshControl, StyleSheet } from 'react-native'
 
 import ArticleListItem from './ArticleListItem'
 import colors from '../constants/colors'
 import * as shapes from '../constants/prop-types'
 
 const ArticleList = (props) => {
-  const { articles, isLoading, navigation: { dispatch }, onRefresh } = props
+  const {
+    articles, isLoading, navigation: { dispatch }, onRefresh
+  } = props
   return (
     <FlatList
       style={styles.container}
