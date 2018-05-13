@@ -2,7 +2,7 @@ import React from 'react'
 import moment from 'moment-timezone'
 import PropTypes from 'prop-types'
 import { NavigationActions } from 'react-navigation'
-import { StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import colors from '../constants/colors'
 import * as shapes from '../constants/prop-types'
@@ -14,24 +14,23 @@ class ArticleListItem extends React.Component {
   }
 
   onArticlePress() {
-    const { article: { id }, dispatch } = this.props
-    dispatch(NavigationActions.navigate({ routeName: 'Article', params: { id } }))
+    const { article: { url }, dispatch } = this.props
+    dispatch(NavigationActions.navigate({ routeName: 'Article', params: { url } }))
   }
 
   render() {
-    const { article: { title, time } } = this.props
+    const { article: { title, time, by } } = this.props
     const formattedTime = moment.unix(time).tz('Europe/Helsinki').calendar()
     return (
       <TouchableOpacity
         onPress={this.onArticlePress}
         style={styles.container}
       >
-        <Text style={styles.time}>
-          {formattedTime}
-        </Text>
-        <Text style={styles.title}>
-          {title}
-        </Text>
+        <View style={styles.header}>
+          <Text style={styles.meta}>{formattedTime}</Text>
+          <Text style={styles.meta}>{by}</Text>
+        </View>
+        <Text style={styles.title}>{title}</Text>
       </TouchableOpacity>
     )
   }
@@ -50,7 +49,11 @@ const styles = StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     borderRadius: 3
   },
-  time: {
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  meta: {
     fontSize: 12
   },
   title: {
