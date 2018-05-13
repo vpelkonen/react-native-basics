@@ -37,6 +37,7 @@ module.exports = {
         ],
         "comma-dangle": 0,
         "no-use-before-define": 0,
+        "react/prop-types": ["error", { "ignore": ["navigation"] }],
         "react/jsx-filename-extension": 0,
         "react-native/no-unused-styles": 2,
         "react-native/split-platform-components": 2,
