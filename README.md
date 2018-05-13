@@ -43,6 +43,19 @@ If you're confident, you can build the app around any API. You could use, for ex
 
 Here's a long list of publicly available APIs for the brave and inspired: https://github.com/toddmotto/public-apis.
 
+## Usage
+1. Make sure you have `node` and `yarn` installed.
+2. Go to `/app` directory on your CLI of choice.
+3. Run `yarn install`.
+4. Run `yarn start`.
+5. Follow the instructions to get the app running on your device, simulator or emulator.
+
+You can access the debug mode by shaking the physical device, pressing `CMD (or CTRL) + M` on Android Emulator, or pressing `CTRL + ALT + Z` on iOS Simulator.
+
+Toggle `Debug JS Remotely` from the debug menu and a tab should opne in your browser (`http://localhost:19000/debugger-ui/` or similar). If you're using Chrome, you can use the console and breakpoints to debug your code.
+
+See more info on running the `create-react-native-app` bootstrap from `./app/README.md`. For any scripts, just replace `npm` with `yarn`.
+
 ## Contents
 The repository has been initialised [eslint](https://eslint.org/) with a JavaScript linter. It's configured for React, React Native and React Navigation so you don't have to. You can lint your code and make sure it's compatible with the rules by running `yarn lint`.
 
