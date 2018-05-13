@@ -43,6 +43,22 @@ If you're confident, you can build the app around any API. You could use, for ex
 
 Here's a long list of publicly available APIs for the brave and inspired: https://github.com/toddmotto/public-apis.
 
+## Contents
+The repository has been initialised [eslint](https://eslint.org/) with a JavaScript linter. It's configured for React, React Native and React Navigation so you don't have to. You can lint your code and make sure it's compatible with the rules by running `yarn lint`.
+
+`App.js` is the entry point to the app, `.eslintrc` has all the linting rules, and `package.json` documents basic metadata and the packages required to build the app.
+
+### Directories
+Directories help segment a scaling codebase. Each section/branch will expand upon the directories and their content as needed. Below is an explanation on each directory and their purpose:
+
+* `/api` will have files for API integrations.
+* `/constants` has files like `colors.js`, `config.js` and `prop-types.js` that contain global variables that are constant throughout the app.
+* `/components` has the meat of the app, everything that is rendered in a neatly organised manner. `components` should rarely, if ever, have their own state or business logic.
+* `/containers` has screens used by `react-navigation`. Containers, or screens, should not have any static content rendered, only imported `components`.
+* `/fixtures` has raw data for development and testing.
+* `/navigators` will have code handling the navigation engine of the app.
+* `/util` contains utility scripts that can be used anywhere within the app.
+
 ---
 
 With ♥️ by [Ville Pelkonen](https://www.linkedin.com/in/vpelkonen/) & [Samuli Laine](https://www.linkedin.com/in/samuli-laine-2a5bb880/)
