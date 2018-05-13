@@ -48,15 +48,19 @@ The repository has been initialised [eslint](https://eslint.org/) with a JavaScr
 
 `App.js` is the entry point to the app, `.eslintrc` has all the linting rules, and `package.json` documents basic metadata and the packages required to build the app.
 
+Redux will be initialised in a `configure-store.js` file.
+
 ### Directories
 Directories help segment a scaling codebase. Each section/branch will expand upon the directories and their content as needed. Below is an explanation on each directory and their purpose:
 
+* `/actions` hosts Redux action creators.
 * `/api` will have files for API integrations.
-* `/constants` has files like `colors.js`, `config.js` and `prop-types.js` that contain global variables that are constant throughout the app.
+* `/constants` has files like `colors.js`, `config.js`, `prop-types.js` and `action-types.js` that contain global variables that are constant throughout the app.
 * `/components` has the meat of the app, everything that is rendered in a neatly organised manner. `components` should rarely, if ever, have their own state or business logic.
 * `/containers` has screens used by `react-navigation`. Containers, or screens, should not have any static content rendered, only imported `components`.
 * `/fixtures` has raw data for development and testing.
 * `/navigators` will have code handling the navigation engine of the app.
+* `/reducers` has Redux reducers that update the store.
 * `/util` contains utility scripts that can be used anywhere within the app.
 
 ---
