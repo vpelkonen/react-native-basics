@@ -4,6 +4,8 @@ This is a course material for learning how to make a mobile app for Android and 
 
 The sample app in the `/app` directory is based on Facebook's [`create-react-native-app`](https://github.com/react-community/create-react-native-app). It's meant to work as a boilerplate for developing your own app. It has ready examples of all the sections featured in the course.
 
+See the [course slides](https://docs.google.com/presentation/d/1Pg7XiojNrS2ZhnOnr0CSG9EV-Oewu1YkLF9KVNGkAWU/edit?usp=sharing) for more detailed information.
+
 ## Goals
 During the course you will learn how to:
 
