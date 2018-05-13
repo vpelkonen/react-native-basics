@@ -4,7 +4,7 @@ import { WebView } from 'react-native'
 
 const Article = (props) => {
   const { url } = props
-  return <WebView source={{ uri: url }} />
+  return <WebView source={{ uri: url }} startInLoadingState />
 }
 
 Article.propTypes = {
