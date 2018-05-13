@@ -1,7 +1,7 @@
 import React from 'react'
 
 import ArticleList from '../components/ArticleList'
-import { getBestStories } from '../api/hacker-news-api'
+import { getBestStories, getStoryById } from '../api/hacker-news-api'
 
 class ArticlesScreen extends React.Component {
   constructor(props) {
@@ -20,13 +20,17 @@ class ArticlesScreen extends React.Component {
   onRefresh() {
     this.setState({ isLoading: true })
     getBestStories()
-      .then(data => {
+      .then(storyIds => {
+        const firstTenStories = storyIds.slice(0, 10)
+        return Promise.all(firstTenStories.map(itemId => getStoryById(itemId)))
+      })
+      .then((stories) => {
         this.setState({
-          articles: data,
+          articles: stories,
           isLoading: false
         })
       })
-      .catch((error) => {
+      .catch(() => {
         this.setState({
           articles: null,
           isLoading: false
