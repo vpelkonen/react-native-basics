@@ -20,7 +20,7 @@ class ArticlesScreen extends React.Component {
   onRefresh() {
     this.setState({ isLoading: true })
     getBestStories()
-      .then(storyIds => {
+      .then((storyIds) => {
         const firstTenStories = storyIds.slice(0, 10)
         return Promise.all(firstTenStories.map(itemId => getStoryById(itemId)))
       })
