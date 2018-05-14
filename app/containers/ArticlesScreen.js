@@ -1,15 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 import ArticleList from '../components/ArticleList'
 import { getBestStories, getStoryById } from '../api/hacker-news-api'
+import * as shapes from '../constants/prop-types'
 
 class ArticlesScreen extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      articles: null,
-      isLoading: false
-    }
     this.onRefresh = this.onRefresh.bind(this)
   }
 
@@ -18,29 +17,13 @@ class ArticlesScreen extends React.Component {
   }
 
   onRefresh() {
-    this.setState({ isLoading: true })
-    getBestStories()
-      .then((storyIds) => {
-        const firstTenStories = storyIds.slice(0, 10)
-        return Promise.all(firstTenStories.map(itemId => getStoryById(itemId)))
-      })
-      .then((stories) => {
-        this.setState({
-          articles: stories,
-          isLoading: false
-        })
-      })
-      .catch(() => {
-        this.setState({
-          articles: null,
-          isLoading: false
-        })
-      })
+    // Using Redux's dispatch(), dispatch an action and update the store via reducers.
+    const { dispatch } = this.props
+    dispatch(getBestStories())
   }
 
   render() {
-    const { navigation } = this.props
-    const { articles, isLoading } = this.state
+    const { articles, isLoading, navigation } = this.props
     return (
       <ArticleList
         articles={articles}
@@ -52,4 +35,25 @@ class ArticlesScreen extends React.Component {
   }
 }
 
-export default ArticlesScreen
+ArticlesScreen.defaultProps = {
+  articles: null
+}
+
+ArticlesScreen.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  articles: PropTypes.arrayOf(shapes.articles),
+  isLoading: PropTypes.bool.isRequired
+}
+
+// Together with connect(), expose required parts of the Redux store as props.
+const mapStateToProps = ({
+  dispatch,
+  hackerNewsState
+}, {
+  dispatch,
+  articles: hackerNewsState.articles,
+  isLoading: hackerNewsState.isLoading
+})
+
+// Connect the ArticlesScreen to the store as defined with mapStateToProps.
+export default connect(mapStateToProps)(ArticlesScreen)
