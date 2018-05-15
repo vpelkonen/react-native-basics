@@ -15,18 +15,14 @@ export default (state = initialState.hackerNewsState, action) => {
   case actionTypes.GET_BEST_STORIES_SUCCESS:
     return {
       ...state,
-      isLoading: false
+      isLoading: false,
+      articles: action.stories
     }
   case actionTypes.GET_BEST_STORIES_ERROR:
     return {
       ...state,
       isLoading: false,
       isError: true
-    }
-  case actionTypes.GET_STORY_BY_ID_SUCCESS:
-    return {
-      ...state,
-      articles: [action.article, ...state.articles]
     }
   default:
     return state // If the action isn't handled by this reducer, just return the existing state.

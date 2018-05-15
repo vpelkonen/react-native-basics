@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import ArticleList from '../components/ArticleList'
-import { getBestStories, getStoryById } from '../api/hacker-news-api'
+import { getBestStoriesAction } from '../actions/hacker-news-actions'
 import * as shapes from '../constants/prop-types'
 
 class ArticlesScreen extends React.Component {
@@ -17,9 +18,8 @@ class ArticlesScreen extends React.Component {
   }
 
   onRefresh() {
-    // Using Redux's dispatch(), dispatch an action and update the store via reducers.
-    const { dispatch } = this.props
-    dispatch(getBestStories())
+    const { getBestStories } = this.props
+    getBestStories()
   }
 
   render() {
@@ -40,20 +40,22 @@ ArticlesScreen.defaultProps = {
 }
 
 ArticlesScreen.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  articles: PropTypes.arrayOf(shapes.articles),
-  isLoading: PropTypes.bool.isRequired
+  articles: PropTypes.arrayOf(shapes.article),
+  isLoading: PropTypes.bool.isRequired,
+  getBestStories: PropTypes.func.isRequired
 }
 
 // Together with connect(), expose required parts of the Redux store as props.
-const mapStateToProps = ({
-  dispatch,
-  hackerNewsState
-}, {
-  dispatch,
+const mapStateToProps = ({ hackerNewsState }) => ({
   articles: hackerNewsState.articles,
   isLoading: hackerNewsState.isLoading
 })
 
-// Connect the ArticlesScreen to the store as defined with mapStateToProps.
-export default connect(mapStateToProps)(ArticlesScreen)
+// Together with connect(), have the action creators bound to dispatch and exposed as props.
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({
+    getBestStories: getBestStoriesAction
+  }, dispatch)
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArticlesScreen)
