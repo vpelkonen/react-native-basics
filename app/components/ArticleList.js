@@ -5,7 +5,7 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import ArticleListItem from './ArticleListItem'
 
 const ArticleList = (props) => {
-  const articles = props.articles
+  const { articles, handleNavigation } = props
   return (
     <FlatList
       style={styles.container}
@@ -16,6 +16,7 @@ const ArticleList = (props) => {
           by={item.by}
           time={item.time}
           url={item.url}
+          onHandlePress={handleNavigation}
         />
       )}
       keyExtractor={(article) => `${article.id}`}
@@ -34,7 +35,8 @@ ArticleList.defaultProps = {
 }
 
 ArticleList.propTypes = {
-  articles: PropTypes.arrayOf(PropTypes.shape({}))
+  articles: PropTypes.arrayOf(PropTypes.shape({})),
+  handleNavigation: PropTypes.func.isRequired
 }
 
 export default ArticleList

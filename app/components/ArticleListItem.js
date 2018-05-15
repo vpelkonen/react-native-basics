@@ -1,22 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {
-  Linking, TouchableOpacity, StyleSheet, Text, View
+  TouchableOpacity, StyleSheet, Text, View
 } from 'react-native'
 
 class ArticleListItem extends React.Component {
-  constructor(props) {
-    super(props)
-    this.onHandlePress = this.onHandlePress.bind(this)
-  }
-
-  onHandlePress() {
-    const { url } = this.props
-    Linking.openURL(url)
+  onHandlePress = () => {
+    const { url, onHandlePress } = this.props
+    onHandlePress('Article', { url })
   }
 
   render() {
-    const { time, by, title } = this.props
+    const { time, by, title, onHandlePress, url } = this.props
     return (
       <TouchableOpacity
         onPress={this.onHandlePress}
@@ -36,7 +31,8 @@ ArticleListItem.propTypes = {
   title: PropTypes.string.isRequired,
   by: PropTypes.string.isRequired,
   time: PropTypes.number.isRequired,
-  url: PropTypes.string.isRequired
+  url: PropTypes.string.isRequired,
+  onHandlePress: PropTypes.func.isRequired
 }
 
 const styles = StyleSheet.create({
