@@ -1,13 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, RefreshControl, StyleSheet, Text, View } from 'react-native';
 
 import ArticleListItem from './ArticleListItem'
 
 const ArticleList = (props) => {
-  const { articles, handleNavigation } = props
+  const { articles, handleNavigation, refreshing, onRefresh } = props
   return (
     <FlatList
+      refreshControl={
+        <RefreshControl
+          refreshing={refreshing}
+          onRefresh={onRefresh}
+        />
+      }
       style={styles.container}
       data={articles}
       renderItem={({ item }) => (
@@ -36,7 +42,9 @@ ArticleList.defaultProps = {
 
 ArticleList.propTypes = {
   articles: PropTypes.arrayOf(PropTypes.shape({})),
-  handleNavigation: PropTypes.func.isRequired
+  handleNavigation: PropTypes.func.isRequired,
+  refreshing: PropTypes.bool.isRequired,
+  onRefresh: PropTypes.func.isRequired
 }
 
 export default ArticleList
