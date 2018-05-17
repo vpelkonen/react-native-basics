@@ -1,15 +1,14 @@
 import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import ArticleList from '../components/ArticleList'
 import fetchGetJSON from '../util/fetchGetJSON'
 import { hackerNewsApiUrl } from '../constants/config'
+import { getHackerNewsArticlesAction } from '../actions/hacker-news-actions'
 
 class HomeScreen extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      articles: null,
-      isLoading: true
-    }
     this.poller = null
   }
 
@@ -24,30 +23,8 @@ class HomeScreen extends React.Component {
   }
 
   getArticles = () => {
-    this.setState({
-      isLoading: true
-    })
-    fetchGetJSON(`${hackerNewsApiUrl}/beststories.json`)
-      .then(articleIds => {
-        const promises = articleIds.splice(0,20)
-          .map((articleId) => {
-            const url = `${hackerNewsApiUrl}/item/${articleId}.json`
-            return fetchGetJSON(url)
-          })
-        return Promise.all(promises)
-      })
-      .then((articles) => {
-        // NOT THIS: this.state = { ...this.state, articles: 'something' }
-        this.setState({
-          isLoading: false,
-          articles
-        })
-      })
-      .catch(() => {
-        this.setState({
-          isLoading: false
-        })
-      })
+    const { getHackerNewsArticlesAction } = this.props
+    getHackerNewsArticlesAction()
   }
 
   handleNavigation = (routeName, params) => {
@@ -56,8 +33,7 @@ class HomeScreen extends React.Component {
   }
 
   render() {
-    console.log(this.props.navigation)
-    const { articles, isLoading } = this.state
+    const { articles, isLoading } = this.props
     return (
       <ArticleList
         articles={articles}
@@ -69,4 +45,25 @@ class HomeScreen extends React.Component {
   }
 }
 
-export default HomeScreen
+const mapStateToProps = (store) => {
+  return {
+    articles: store.hackerNewsState.articles,
+    isLoading: store.hackerNewsState.isLoading
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getHackerNewsArticlesAction: bindActionCreators(
+      getHackerNewsArticlesAction,
+      dispatch
+    )
+  }
+  /* ...is the same as:
+    return bindActionCreators({
+      getHackerNewsArticlesAction
+    }, dispatch)
+  */
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)
